@@ -1,0 +1,12 @@
+YA separa las cosas
+YA elimina espacios
+YA elimina enter
+YA valida parentesis
+YA validar que no existan "."
+NO validar que todas las variables tengan un valor el cual transformar
+NO revisar asunto del enter
+NO implicit2Explicit
+NO valida "++" "*/"
+NO cambia variales por numeros
+NO efectuar operacion :S
+
