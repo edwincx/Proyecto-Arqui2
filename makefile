@@ -1,6 +1,5 @@
+evalua: evalua.o
+	ld -o evalua evalua.o
 
-funcion: funcion.o
-	ld -o funcion funcion.o
-
-funcion.o: funcion.asm
-	yasm -f elf64 funcion.asm
+evalua.o: evalua.asm
+	yasm -f elf64 evalua.asm
