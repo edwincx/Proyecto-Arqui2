@@ -126,6 +126,11 @@ global _start
 
 			call obtenerOperacion
 			call mover
+
+			;mov rsi,expresionMatematica
+			;mov rdx,lenExpresionMatematica
+			;call imprimir
+
 			mov r13, r10                ; en r13 tenemos el largo de la expresionMatematica
 			call validarParentesis
 			call validarPuntos          ; valida que no exista nunca un . en la operacion	
@@ -152,6 +157,7 @@ obtenerOperacion:
 	mov rdx, lenBufferLectura
 	syscall
 	cmp rax, 1
+	mov r15,rax
 	jz salir
 	ret
 
@@ -163,11 +169,11 @@ mover:            ;Guarda en cada buffer la expresion y la variable , tambien qu
 	mov r11,-1    ;contador para las variables
 	xor r10,r10
 	mov r10,0
-	dec rax
+	;dec r15
 	
 	.ciclo:
 	inc rcx
-	cmp rcx, rax                       ;compara lo que leyo con lo que lleva leido para saber si llego al final 
+	cmp rcx, lenBufferLectura                 ;compara lo que leyo con lo que lleva leido para saber si llego al final 
 	ja .salirDeMover ;
 	cmp byte[BufferLectura + rcx], ' '
 	je .ciclo
